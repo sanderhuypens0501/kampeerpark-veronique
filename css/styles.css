@@ -1,0 +1,1118 @@
+/* ==========================================================================
+   Kampeerverblijfpark Veronique (Kampenhout)
+   Belgian Editorial Hospitality — Authentiek, Rustgevend & Professioneel
+   Palette: Warm Linnen (#f7f5f0), Zuiver Krijt (#ffffff), Zandklei (#eeebe3),
+            Diep Bosgroen (#1c2420), Dennen (#2d4a3e), Terracotta (#b85d3b)
+   Typografie: Lora (Koppen) & Inter (Lopende tekst)
+   100% Originele beelden, ZERO emoticons, 100% Cookievrij
+   ========================================================================== */
+
+@import url('fonts.css');
+
+:root {
+  /* Kleurenpalet — Aards, gedempt, tijdloos */
+  --color-bg: #f7f5f0;            /* Warm Linnen */
+  --color-surface: #ffffff;       /* Zuiver Krijt */
+  --color-surface-warm: #eeebe3;  /* Zandklei */
+  --color-text: #1c2420;          /* Diep Bosgroen/Zwart */
+  --color-muted: #626b65;         /* Rivierklei */
+  --color-primary: #2d4a3e;       /* Dennen / Mos */
+  --color-primary-hover: #1e332a;
+  --color-accent: #b85d3b;        /* Terracotta */
+  --color-accent-hover: #9c4c2e;
+  --color-border: #ded9cd;        /* Natuurlijk Touw */
+  --color-border-subtle: #eae5d9;
+  --color-row-hover: #f1ede3;
+  --color-tag-free: #244234;
+  --color-tag-free-bg: #e2ede6;
+
+  /* Typografie */
+  --font-heading: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --h1-size: clamp(2.3rem, 1.8rem + 2.2vw, 3.6rem);
+  --h2-size: clamp(1.8rem, 1.4rem + 1.6vw, 2.75rem);
+  --h3-size: 1.25rem;
+  --lead-size: clamp(1.05rem, 1rem + 0.2vw, 1.22rem);
+  --body-size: 1rem;
+
+  --container-max: 1140px;
+  --transition-gentle: opacity 0.3s ease, border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* ==========================================================================
+   Basis & Reset
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  line-height: 1.7;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-gentle);
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum", "lnum";
+}
+
+/* Toegankelijkheid: Skip Link & Focus */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1.5rem;
+  background: var(--color-primary);
+  color: #ffffff;
+  padding: 0.75rem 1.25rem;
+  z-index: 9999;
+  font-weight: 500;
+  border-radius: 2px;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 1.5rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* Secties & Titels */
+.section {
+  padding-top: clamp(4.5rem, 8vw, 7.5rem);
+  padding-bottom: clamp(4.5rem, 8vw, 7.5rem);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.section-surface {
+  background-color: var(--color-surface);
+}
+
+.section-warm {
+  background-color: var(--color-surface-warm);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--color-text);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+h1 {
+  font-size: var(--h1-size);
+  line-height: 1.18;
+}
+
+h2 {
+  font-size: var(--h2-size);
+  line-height: 1.22;
+}
+
+h3 {
+  font-size: var(--h3-size);
+  line-height: 1.35;
+}
+
+.editorial-kicker {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+}
+
+.section-lead {
+  font-size: var(--lead-size);
+  color: var(--color-muted);
+  line-height: 1.68;
+  max-width: 62ch;
+  margin-top: 1rem;
+}
+
+/* ==========================================================================
+   1. Header
+   ========================================================================== */
+
+.site-header {
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 0;
+  gap: 2rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.brand-logo-img {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.brand-location {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  letter-spacing: 0.04em;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.nav-link {
+  font-size: 0.925rem;
+  color: var(--color-text);
+  font-weight: 500;
+  position: relative;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 0.25rem;
+}
+
+.nav-link:hover {
+  color: var(--color-accent);
+}
+
+.btn-header-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary);
+  color: #ffffff !important;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.5rem 1.15rem;
+  border-radius: 2px;
+  min-height: 40px;
+  transition: var(--transition-gentle);
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.btn-header-cta:hover {
+  background-color: var(--color-accent);
+  color: #ffffff !important;
+  text-decoration: none;
+}
+
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.825rem;
+  font-weight: 500;
+  color: var(--color-muted);
+  padding-left: 1.25rem;
+  border-left: 1px solid var(--color-border);
+}
+
+.lang-switch a, .lang-switch button {
+  color: var(--color-muted);
+  min-height: 44px;
+  min-width: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-gentle);
+}
+
+.lang-switch a.active, .lang-switch button.active {
+  color: var(--color-text);
+  font-weight: 700;
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.lang-switch a:hover, .lang-switch button:hover {
+  color: var(--color-accent);
+}
+
+.mobile-nav-toggle {
+  display: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text);
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--color-border);
+}
+
+/* ==========================================================================
+   2. Asymmetrische Editorial Hero met Originele Foto
+   ========================================================================== */
+
+.hero-editorial {
+  padding-top: clamp(3.5rem, 6vw, 5.5rem);
+  padding-bottom: clamp(3.5rem, 6vw, 5.5rem);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.hero-split-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(3rem, 5vw, 5.5rem);
+  align-items: center;
+}
+
+.hero-text-col {
+  padding-right: 1rem;
+}
+
+.hero-meta-address {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  display: block;
+}
+
+.hero-editorial h1 {
+  margin-bottom: 1.5rem;
+}
+
+.hero-editorial p.hero-lead {
+  font-size: var(--lead-size);
+  line-height: 1.68;
+  color: var(--color-muted);
+  max-width: 58ch;
+  margin-bottom: 2.25rem;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.btn-terracotta {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--color-accent);
+  color: #ffffff;
+  padding: 0.85rem 1.75rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 2px;
+  transition: var(--transition-gentle);
+}
+
+.btn-terracotta:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.btn-editorial-text {
+  font-size: 0.95rem;
+  color: var(--color-text);
+  font-weight: 500;
+  border-bottom: 1px solid var(--color-text);
+  padding-bottom: 2px;
+}
+
+.btn-editorial-text:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.hero-image-col {
+  position: relative;
+}
+
+.hero-photo-frame {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  padding: 0.65rem;
+}
+
+.hero-photo-frame img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.hero-photo-caption {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  margin-top: 0.75rem;
+  font-style: italic;
+  font-family: var(--font-heading);
+}
+
+/* ==========================================================================
+   3. Praktische Infostrip (Zuivere typografie, ZERO emojis)
+   ========================================================================== */
+
+.infostrip {
+  background-color: var(--color-surface-warm);
+  border-bottom: 1px solid var(--color-border);
+  padding: 1.15rem 0;
+}
+
+.infostrip-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem 2rem;
+  font-size: 0.875rem;
+  color: var(--color-text);
+}
+
+.infostrip-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.infostrip-item strong {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.infostrip-divider {
+  color: var(--color-border);
+}
+
+/* ==========================================================================
+   4. Rijke Fotogalerij met Originele Beelden
+   ========================================================================== */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  margin-top: 3rem;
+}
+
+.gallery-photo-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-gentle);
+}
+
+.gallery-photo-card:hover {
+  border-color: var(--color-primary);
+}
+
+.gallery-img-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+  background: #eae5d9;
+}
+
+.gallery-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-photo-card:hover .gallery-img-wrap img {
+  transform: scale(1.03);
+}
+
+.gallery-caption {
+  padding: 0.85rem 0.5rem 0.35rem 0.5rem;
+  font-size: 0.825rem;
+  color: var(--color-muted);
+  font-family: var(--font-heading);
+  font-style: italic;
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   5. Sfeervolle Achtergrondfoto-Band (Rustpunt)
+   ========================================================================== */
+
+.photo-quote-band {
+  position: relative;
+  padding: clamp(5.5rem, 9vw, 8.5rem) 1.5rem;
+  background-image: linear-gradient(
+    rgba(27, 36, 30, 0.78),
+    rgba(27, 36, 30, 0.82)
+  ), url('../assets/images/original-photo-11.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #ffffff;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.quote-box-inner {
+  max-width: 820px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.quote-text {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 1.1rem + 1.4vw, 2.1rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #f7f5f0;
+  margin-bottom: 1.5rem;
+}
+
+.quote-author {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #ded9cd;
+}
+
+/* ==========================================================================
+   6. Drie Vormen van Verblijf
+   ========================================================================== */
+
+.trio-editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.25rem;
+  margin-top: 3rem;
+}
+
+.editorial-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-gentle);
+}
+
+.editorial-card:hover {
+  border-color: var(--color-primary);
+}
+
+.card-numeral {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.editorial-card h3 {
+  font-size: 1.35rem;
+  margin-bottom: 0.85rem;
+  color: var(--color-text);
+}
+
+.editorial-card p {
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  line-height: 1.68;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.card-details-list {
+  list-style: none;
+  font-size: 0.875rem;
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.card-details-list li {
+  position: relative;
+  padding-left: 1.1rem;
+}
+
+.card-details-list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+
+/* ==========================================================================
+   7. Klassieke Gasten-Tarieventabel (Ledger)
+   ========================================================================== */
+
+.tarieven-section {
+  background-color: var(--color-surface);
+}
+
+.ledger-wrapper {
+  max-width: 920px;
+  margin: 0 auto;
+  border: 1px solid var(--color-border);
+  background: #ffffff;
+}
+
+.ledger-header {
+  padding: 2rem 2.5rem;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg);
+}
+
+.ledger-header h3 {
+  font-size: 1.5rem;
+  color: var(--color-text);
+  margin-bottom: 0.35rem;
+}
+
+.ledger-subtitle {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.rates-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.rates-table th {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+  background-color: #faf9f5;
+  padding: 1rem 2.5rem;
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+}
+
+.rates-table th.text-right {
+  text-align: right;
+}
+
+.rates-table td {
+  padding: 1.2rem 2.5rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+  color: var(--color-text);
+  vertical-align: middle;
+  transition: background-color 0.15s ease;
+}
+
+.rates-table tbody tr:hover td {
+  background-color: var(--color-row-hover);
+}
+
+.rates-table tr.highlight-row td {
+  background-color: #fbf9f4;
+  font-weight: 500;
+}
+
+.rates-table td.rate-price {
+  text-align: right;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.rate-unit {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--color-muted);
+  margin-left: 0.25rem;
+}
+
+.rate-price.free {
+  color: var(--color-tag-free);
+  font-weight: 600;
+}
+
+.rates-table-footer {
+  padding: 1.75rem 2.5rem;
+  background-color: #faf9f5;
+  border-top: 1px solid var(--color-border);
+}
+
+.rates-table-footer p.footnote {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--color-muted);
+}
+
+.rates-table-footer p.footnote strong {
+  color: var(--color-text);
+}
+
+/* ==========================================================================
+   8. Omgeving & Sas van Kampenhout
+   ========================================================================== */
+
+.omgeving-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.omgeving-text-col h2 {
+  margin-bottom: 1.25rem;
+}
+
+.omgeving-text-col p {
+  color: var(--color-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  max-width: 54ch;
+}
+
+.omgeving-facts {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 2rem;
+  border-top: 1px solid var(--color-border);
+  padding-top: 1.75rem;
+}
+
+.fact-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.fact-title {
+  font-weight: 600;
+  color: var(--color-text);
+  font-size: 0.95rem;
+}
+
+.fact-desc {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+.omgeving-media-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.map-editorial-frame {
+  border: 1px solid var(--color-border);
+  background: #ffffff;
+  padding: 0.5rem;
+}
+
+.map-editorial-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.omgeving-secondary-photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.secondary-photo-frame {
+  border: 1px solid var(--color-border);
+  background: #ffffff;
+  padding: 0.35rem;
+}
+
+.secondary-photo-frame img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   9. Contact met Zachte Achtergrondfoto
+   ========================================================================== */
+
+.contact-section-with-bg {
+  position: relative;
+  background-image: linear-gradient(
+    rgba(247, 245, 240, 0.92),
+    rgba(247, 245, 240, 0.94)
+  ), url('../assets/images/original-photo-13.webp');
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.contact-box-editorial {
+  max-width: 820px;
+  margin: 0 auto;
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: clamp(2.5rem, 5vw, 4rem);
+  text-align: center;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+}
+
+.contact-box-editorial h2 {
+  margin-bottom: 1rem;
+}
+
+.contact-box-editorial p.contact-desc {
+  font-size: var(--lead-size);
+  color: var(--color-muted);
+  max-width: 54ch;
+  margin: 0 auto 2.5rem auto;
+  line-height: 1.65;
+}
+
+.contact-email-large {
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 1rem + 1.2vw, 1.85rem);
+  font-weight: 600;
+  color: var(--color-primary);
+  display: inline-block;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: 0.35rem;
+}
+
+.contact-email-large:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.contact-meta-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  font-size: 0.925rem;
+  color: var(--color-muted);
+  margin-bottom: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.contact-meta-item strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   10. Footer (Ingetogen & Betrouwbaar)
+   ========================================================================== */
+
+.site-footer {
+  background-color: #212b25;
+  color: #eae5d9;
+  padding-top: 4.5rem;
+  padding-bottom: 3rem;
+  border-top: 3px solid var(--color-primary);
+}
+
+.footer-inner-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 3.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.footer-col-brand h3 {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  color: #ffffff;
+  margin-bottom: 0.65rem;
+}
+
+.footer-col-brand p {
+  font-size: 0.9rem;
+  color: #a3aba5;
+  line-height: 1.65;
+  max-width: 44ch;
+}
+
+.footer-col-title {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #c9d1cb;
+  margin-bottom: 1.25rem;
+}
+
+.footer-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  font-size: 0.9rem;
+  color: #a3aba5;
+}
+
+.footer-list a {
+  color: #c9d1cb;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer-list a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.825rem;
+  color: #8c948e;
+}
+
+.cookie-free-statement {
+  color: #a3aba5;
+}
+
+/* ==========================================================================
+   11. Responsive
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  .hero-split-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .trio-editorial-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .omgeving-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .footer-inner-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-nav-toggle {
+    display: block;
+  }
+
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    flex-direction: column;
+    padding: 1.5rem 2rem;
+    gap: 1.25rem;
+  }
+
+  .main-nav.open {
+    display: flex;
+  }
+
+  .lang-switch {
+    border-left: none;
+    padding-left: 0;
+    margin-top: 0.5rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rates-table th,
+  .rates-table td {
+    padding: 0.85rem 1.25rem;
+  }
+
+  .ledger-header {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .rates-table-footer {
+    padding: 1.25rem;
+  }
+
+  .contact-meta-row {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Mobiele Kaartweergave voor Tarieventabel (375px vriendelijk) */
+  .ledger-header {
+    padding: 1.25rem 1rem;
+  }
+
+  .ledger-header h3 {
+    font-size: 1.25rem;
+  }
+
+  .rates-table thead {
+    display: none;
+  }
+
+  .rates-table,
+  .rates-table tbody,
+  .rates-table tr,
+  .rates-table td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .rates-table tr {
+    padding: 1.15rem 1.1rem;
+    border-bottom: 1px solid var(--color-border);
+    background: #ffffff;
+  }
+
+  .rates-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .rates-table td {
+    padding: 0.25rem 0;
+    border-bottom: none;
+  }
+
+  .rates-table td[data-label="Onderdeel"] {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .rates-table td[data-label="Specificatie"] {
+    font-size: 0.88rem;
+    color: var(--color-muted);
+    line-height: 1.45;
+  }
+
+  .rates-table td.rate-price {
+    text-align: left;
+    margin-top: 0.6rem;
+    padding-top: 0.5rem;
+    border-top: 1px dashed var(--color-border-subtle);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-accent);
+  }
+
+  .rate-price.free {
+    color: var(--color-tag-free);
+  }
+
+  .rates-table-footer {
+    padding: 1rem;
+  }
+}

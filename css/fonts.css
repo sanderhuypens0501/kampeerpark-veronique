@@ -1,0 +1,22 @@
+/* ==========================================================================
+   Self-Hosted Variable Fonts: Lora (Koppen) & Inter (Lopende tekst)
+   100% Cookievrij, lokaal geserveerd
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('../assets/fonts/lora-variable.woff2') format('woff2-variations'),
+       url('../assets/fonts/lora-variable.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('../assets/fonts/inter-variable.woff2') format('woff2-variations'),
+       url('../assets/fonts/inter-variable.woff2') format('woff2');
+}

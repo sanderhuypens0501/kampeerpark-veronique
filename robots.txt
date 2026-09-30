@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.kampeerverblijfparkveronique.be/sitemap.xml
